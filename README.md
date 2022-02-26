@@ -1,11 +1,15 @@
-# Logic_App_Docker_Image
-Create a Docker Image of logic app
+# How to create Docker Image of Azure Logic App Standard
+This articles gives you overview of How to create Docker Image of Azure Logic app and How to push image into azure 
+Container Registry (ACR)
 
-# Pre-requisites
+### Pre-requisites
 - Docker for Desktop
 - Docker extension for VS code
+- Logic App (Standard) Extension
+- C# Extension
+- Azure Account
 
-# Create a stateless workflow locally in Visual studio Code
+### Create a stateless workflow locally in Visual studio Code
 
 ![image](https://user-images.githubusercontent.com/6815990/155837169-a34430b5-e331-4a6f-b728-438371cc9dc0.png)
 
