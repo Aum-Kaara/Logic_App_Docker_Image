@@ -105,3 +105,6 @@ docker push laacr.azurecr.io/laimage
 ```
 
 ![image](https://user-images.githubusercontent.com/6815990/155837776-e24a25f0-bd1e-4146-b6f0-005ea6d5aac9.png)
+
+![image](https://user-images.githubusercontent.com/6815990/155840267-aa740023-8252-4e7c-aa81-31e0027f6ba9.png)
+
