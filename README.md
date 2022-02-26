@@ -58,6 +58,7 @@ Run the container locally by using the below command
 docker run -p 8080:80 <ImageName>
 ```
 
+
 you can see Docker extension 
 
 ![image](https://user-images.githubusercontent.com/6815990/155837407-789954ad-145f-43ed-9c79-e7bf04c47a66.png)
@@ -66,3 +67,37 @@ you can see Docker extension
 Navigate to the Azure storage account provided in the docker definition and open blob containers. You will see the following folders
 
 ![image](https://user-images.githubusercontent.com/6815990/155837426-72ea344a-c0b6-4e1a-abcc-56114768c470.png)
+
+
+### Push Docker Image to Azure Container Registry
+
+Create ACR on Azure Portal
+
+![image](https://user-images.githubusercontent.com/6815990/155837509-03d30b4a-8d28-49af-8eda-bfa5ebfc19ca.png)
+
+### Enable Access key to login into ACR
+
+![image](https://user-images.githubusercontent.com/6815990/155837633-2af41bd5-0684-43a9-bc76-7018075e0a22.png)
+
+### Login into Docker Registry
+
+```
+docker login laacr.azurecr.io
+```
+
+![image](https://user-images.githubusercontent.com/6815990/155837729-d241390e-05f4-4b1a-8151-93b93c626979.png)
+
+
+### Tag and Push Image to ACR
+
+Use docker tag to create an alias of the image with the fully qualified path to your registry. 
+
+```
+docker tag laimage laacr.azurecr.io/laimage
+```
+
+```
+docker push laacr.azurecr.io/laimage
+```
+
+![image](https://user-images.githubusercontent.com/6815990/155837776-e24a25f0-bd1e-4146-b6f0-005ea6d5aac9.png)
