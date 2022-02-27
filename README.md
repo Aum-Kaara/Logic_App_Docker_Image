@@ -120,4 +120,63 @@ az aks update -n laaks -g acr --attach-acr laacr
 
 ### Deploy Logic App Image from ACR into AKS 
 
+Go to AKS - > 
+```
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: azure-la
+  spec:
+    finalizers:
+      - kubernetes
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: azure-la-front
+    namespace: azure-la
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: azure-la-front
+    template:
+      metadata:
+        labels:
+          app: azure-la-front
+      spec:
+        nodeSelector:
+          beta.kubernetes.io/os: linux
+        containers:
+          - name: azure-la-front
+            image: laacr.azurecr.io/laimage
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            ports:
+              - containerPort: 80
+            env:
+              - name: AzureWebJobsStorage
+                value: <<connectionstring>>
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: azure-la-front
+    namespace: azure-la
+  spec:
+    type: LoadBalancer
+    ports:
+      - port: 80
+    selector:
+      app: azure-la-front
+
+```
+
+![image](https://user-images.githubusercontent.com/6815990/155884836-449339eb-6a77-4ae9-afd6-a5e4600bbdbc.png)
+
+### Fetch logic app URL using callback url 
+
 ![image](https://user-images.githubusercontent.com/6815990/155879905-afc54d46-4ba0-42bf-9f00-4d255d8e99a7.png)
