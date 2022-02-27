@@ -1,6 +1,6 @@
-# How to create Docker Image of Azure Logic App Standard
+# How to create Docker Image of Azure Logic App Standard and Deploy in Azure Kubernetes service AKS 
 This articles gives you overview of How to create Docker Image of Azure Logic app and How to push image into azure 
-Container Registry (ACR)
+Container Registry (ACR) and How to deploy ACR image into AKS 
 
 ### Pre-requisites
 - Docker for Desktop
@@ -108,3 +108,6 @@ docker push laacr.azurecr.io/laimage
 
 ![image](https://user-images.githubusercontent.com/6815990/155840267-aa740023-8252-4e7c-aa81-31e0027f6ba9.png)
 
+
+
+![image](https://user-images.githubusercontent.com/6815990/155879905-afc54d46-4ba0-42bf-9f00-4d255d8e99a7.png)
