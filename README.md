@@ -177,6 +177,26 @@ Go to AKS - >
 
 ![image](https://user-images.githubusercontent.com/6815990/155884836-449339eb-6a77-4ae9-afd6-a5e4600bbdbc.png)
 
+check if app service deployed 
+
+![image](https://user-images.githubusercontent.com/6815990/155884890-a3601a65-7f87-4f15-93e5-744fb179c295.png)
+
+
 ### Fetch logic app URL using callback url 
 
+Fetch master key from blob storage which will help in fetching callback url 
+
+![image](https://user-images.githubusercontent.com/6815990/155885243-11635446-1a2a-46c0-b015-4de39b9c86a6.png)
+
+
+Fetch callback url using url 
+
+http://20.76.240.221:80/runtime/webhooks/workflow/api/management/workflows/Stateful1/triggers/manual/listCallbackUrl?api-version=2020-05-01-preview&code=<amsterkey>
+
 ![image](https://user-images.githubusercontent.com/6815990/155879905-afc54d46-4ba0-42bf-9f00-4d255d8e99a7.png)
+
+you can use postman to test logic app 
+
+Logic App url - http://20.76.240.221:80/api/Stateful1/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<key>
+![image](https://user-images.githubusercontent.com/6815990/155885042-441e3d21-2d45-4f67-adfe-f955f489ab5d.png)
+
