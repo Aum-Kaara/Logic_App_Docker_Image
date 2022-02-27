@@ -108,6 +108,16 @@ docker push laacr.azurecr.io/laimage
 
 ![image](https://user-images.githubusercontent.com/6815990/155840267-aa740023-8252-4e7c-aa81-31e0027f6ba9.png)
 
+### Create Azure Kubernetes cluster - AKS
 
+![image](https://user-images.githubusercontent.com/6815990/155880829-85a5786f-8fbc-496c-8f6c-8145e8fd5611.png)
+
+### Link ACR with AKS
+
+```
+az aks update -n laaks -g acr --attach-acr laacr
+```
+
+### Deploy Logic App Image from ACR into AKS 
 
 ![image](https://user-images.githubusercontent.com/6815990/155879905-afc54d46-4ba0-42bf-9f00-4d255d8e99a7.png)
