@@ -1,6 +1,8 @@
-# How to create Docker Image of Azure Logic App Standard and Deploy in Azure Kubernetes service AKS 
-This articles gives you overview of How to create Docker Image of Azure Logic app and How to push image into azure 
-Container Registry (ACR) and How to deploy ACR image into AKS 
+# How to create Docker Image of Azure Logic App Standard and Deploy in Azure Kubernetes service (AKS)
+This articles gives you overview of 
+- How to create Docker Image of Azure Logic app 
+- How to push image into azure Container Registry (ACR) and 
+- How to deploy ACR image into AKS 
 
 ### Pre-requisites
 - Docker for Desktop
@@ -8,8 +10,11 @@ Container Registry (ACR) and How to deploy ACR image into AKS
 - Logic App (Standard) Extension
 - C# Extension
 - Azure Account
+- Stoarge account 
 
 ### Create a stateless workflow locally in Visual studio Code
+
+i am using VS code for developing Azure Logic App Standard .
 
 ![image](https://user-images.githubusercontent.com/6815990/155837169-a34430b5-e331-4a6f-b728-438371cc9dc0.png)
 
@@ -34,8 +39,6 @@ Select Run->Start Debugging or F5 to start the logic apps locally, finally the e
 ```
 FROM mcr.microsoft.com/azure-functions/node:3.0
 
- 
-
 ENV AzureWebJobsStorage DefaultEndpointsProtocol=<BlobStorageConnectionString>
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot AzureFunctionsJobHost__Logging__Console__IsEnabled=true FUNCTIONS_V2_COMPATIBILITY_MODE=true
@@ -53,6 +56,8 @@ And modify the local.settings.json to have the storage account as the
 
 Build the docker container image by using the docker file by running the below command
 
+make sure to tag like <acr name>.azurecr.io\imagename to push image into ACR
+
 ```
 docker build --tag <ImageName> .
 ```
@@ -63,7 +68,7 @@ docker run -p 8080:80 <ImageName>
 ```
 
 
-you can see Docker extension 
+you can see images and instances in Docker extension 
 
 ![image](https://user-images.githubusercontent.com/6815990/155837407-789954ad-145f-43ed-9c79-e7bf04c47a66.png)
 
@@ -75,11 +80,13 @@ Navigate to the Azure storage account provided in the docker definition and open
 
 ### Push Docker Image to Azure Container Registry
 
-Create ACR on Azure Portal
+Create Azure Container registry manually on Azure Portal
 
 ![image](https://user-images.githubusercontent.com/6815990/155837509-03d30b4a-8d28-49af-8eda-bfa5ebfc19ca.png)
 
-### Enable Access key to login into ACR
+### Enable Access key to login into ACR 
+ 
+ this helps to login into acr and push images 
 
 ![image](https://user-images.githubusercontent.com/6815990/155837633-2af41bd5-0684-43a9-bc76-7018075e0a22.png)
 
